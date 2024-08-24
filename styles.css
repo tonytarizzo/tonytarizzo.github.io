@@ -8,16 +8,16 @@
 
 /* Body and Background */
 body {
-    background-color: #f5f0e1; /* Warm cream background */
-    color: #4d3319; /* Deep brown text color */
+    background-color: #f5f0e1;
+    color: #4d3319;
     text-align: center;
 }
 
 /* Header and Navigation */
 header {
-    background-color: #e6a919; /* Mustard yellow */
+    background-color: #e6a919;
     padding: 20px 0;
-    border-bottom: 4px solid #d35400; /* Burnt orange border */
+    border-bottom: 4px solid #d35400;
 }
 
 nav {
@@ -33,40 +33,67 @@ nav {
     font-size: 24px;
     font-weight: bold;
     color: #ffffff;
-    transition: color 0.3s ease;
-    font-family: 'Cooper Black', serif; /* 70s inspired font */
+    font-family: 'Cooper Black', serif;
 }
 
-/* Hover and Active States */
-.logo a:hover, .logo a:active {
-    color: #d35400; /* Burnt orange on hover */
+/* Album Grid */
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 50px auto;
 }
 
-/* Hero Section */
-.hero {
-    margin-top: 50px;
+.album {
+    position: relative;
 }
 
-.hero img {
-    max-width: 100%;
+.album img {
+    width: 100%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: filter 0.3s ease, transform 0.3s ease;
 }
 
-.hero img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+.album .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
+}
+
+.album:hover img {
+    filter: blur(2px);
+    transform: scale(1.05);
+}
+
+.album:hover .overlay {
+    opacity: 1;
+}
+
+.text {
+    font-size: 18px;
+    font-weight: bold;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .logo a {
-        font-size: 20px;
+    .album-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .hero {
-        margin-top: 30px;
+    .logo a {
+        font-size: 20px;
     }
 }
