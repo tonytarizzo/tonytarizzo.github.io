@@ -63,14 +63,14 @@ nav {
     transition: filter 0.3s ease;
 }
 
-/* Centered Gradient Transparency on Hover */
+/* Centered Lightening Gradient Transparency on Hover */
 .album .overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 70%);
+    background: radial-gradient(circle, rgba(245, 240, 225, 0.9) 0%, rgba(245, 240, 225, 0) 60%);
     color: white;
     display: flex;
     justify-content: center;
@@ -84,9 +84,15 @@ nav {
     opacity: 1;
 }
 
-.text {
-    font-size: 18px;
-    font-weight: bold;
+.icons {
+    display: flex;
+    gap: 20px; /* Space between the logos */
+}
+
+.icons img {
+    width: 40px; /* Adjust size as needed */
+    height: auto;
+    filter: invert(100%); /* Makes the icons white */
 }
 
 /* Responsive Design */
