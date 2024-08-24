@@ -36,6 +36,12 @@ nav {
     font-family: 'Cooper Black', serif;
 }
 
+/* Container for Scaling the Grid */
+.container {
+    width: 90%; /* Scaling the grid to 90% */
+    margin: 0 auto; /* Centering the grid */
+}
+
 /* Album Grid */
 .album-grid {
     display: grid;
@@ -54,16 +60,17 @@ nav {
     height: auto;
     border-radius: 10px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    transition: filter 0.3s ease, transform 0.3s ease;
+    transition: filter 0.3s ease;
 }
 
+/* Centered Gradient Transparency on Hover */
 .album .overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 70%);
     color: white;
     display: flex;
     justify-content: center;
@@ -71,11 +78,6 @@ nav {
     opacity: 0;
     transition: opacity 0.3s ease;
     border-radius: 10px;
-}
-
-.album:hover img {
-    filter: blur(2px);
-    transform: scale(1.05);
 }
 
 .album:hover .overlay {
