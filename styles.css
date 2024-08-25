@@ -13,19 +13,14 @@ body {
     text-align: center;
     position: relative;
     min-height: 100vh;
-    padding: 20px; /* Add some padding to create space for the border */
-    background-image: url('images/border-texture.jpg'); /* Apply the texture */
-    background-repeat: no-repeat; /* Avoid repeating the texture */
-    background-size: cover; /* Cover the entire background with the texture */
-    background-position: center; /* Center the texture */
-    border: 20px solid transparent; /* Reserve space for the border */
-    border-image: url('images/border-texture.jpg') 30 round; /* Apply the texture as a border */
+    padding: 0; /* Remove padding since we're not using the border */
 }
 
 /* Header and Navigation */
 header {
+    background-color: #d35400; /* Add the orange bar */
     padding: 20px 0;
-    /*border-bottom: 4px solid #d35400;*/
+    margin-bottom: 20px; /* Add some space below the header */
 }
 
 nav {
@@ -38,27 +33,27 @@ nav {
 
 .logo a {
     text-decoration: none;
-    font-size: 36px; /* Larger font size */
+    font-size: 36px;
     font-weight: bold;
-    color: #4d3319; /* Darker color for contrast */
+    color: #f5f0e1; /* White/off-white text color */
     font-family: 'Cooper Black', serif;
-    line-height: 1.2; /* Space between the two lines */
+    line-height: 1.2;
 }
 
 /* Container for Scaling the Grid */
 .container {
-    width: 85%; /* Slightly reduce the width to scale down the grid */
-    margin: 0 auto; /* Centering the grid */
+    width: 85%;
+    margin: 0 auto;
 }
 
 /* Album Grid */
 .album-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns per row */
-    gap: 0; /* Remove gaps between the covers for the collage effect */
-    max-width: 950px; /* Adjust the width of the grid to reduce overall size */
-    margin: 0px auto;
-
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    max-width: 950px;
+    margin: 0 auto;
+    padding-top: 0;
 }
 
 .music-card {
@@ -69,10 +64,10 @@ nav {
     position: relative;
     cursor: pointer;
     overflow: hidden;
-    border-radius: 0; /* Remove border-radius for collage effect */
-    box-shadow: none; /* Remove box-shadow for collage effect */
-    /* margin-bottom: -4px; /* Prevents gaps due to browser rounding */
-    /*margin-right: -4px; /* Prevents gaps due to browser rounding */
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: -4px;
+    margin-right: -4px;
 }
 
 .music-card-overlay {
@@ -87,9 +82,9 @@ nav {
     transition: opacity 0.5s;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centering text vertically */
-    align-items: center; /* Centering text horizontally */
-    padding: 40px; /* Apple-style spacing */
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
     text-align: center;
 }
 
@@ -98,7 +93,7 @@ nav {
 }
 
 .song-name {
-    font-size: 1.5em; /* Adjusted for reduced size */
+    font-size: 1.5em;
     font-weight: 600;
     margin-bottom: 10px;
     transform: translateY(20px);
@@ -106,7 +101,7 @@ nav {
 }
 
 .artist-name {
-    font-size: 1em; /* Adjusted for reduced size */
+    font-size: 1em;
     font-weight: 300;
     margin-bottom: 25px;
     transform: translateY(20px);
@@ -116,7 +111,7 @@ nav {
 
 .music-links {
     display: flex;
-    gap: 20px; /* Slightly reduced gap between icons */
+    gap: 20px;
     transform: translateY(20px);
     transition: transform 0.7s, opacity 0.7s;
     opacity: 0;
@@ -131,10 +126,13 @@ nav {
     transition: color 0.3s;
 }
 
+.music-link:hover {
+    opacity: 0.8;
+}
+
 .link-icon {
-    width: 35px; /* Reduced size for better fit */
+    width: 35px;
     height: auto;
-    /*filter: invert(100%); /* Makes the icons white, including SVGs */
 }
 
 .music-card:hover .song-name,
@@ -164,7 +162,7 @@ nav {
 /* Responsive Design */
 @media (max-width: 768px) {
     .album-grid {
-        grid-template-columns: repeat(2, 1fr); /* Adjust to 2 columns per row on smaller screens */
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .logo a {
@@ -174,6 +172,6 @@ nav {
 
 @media (max-width: 480px) {
     .album-grid {
-        grid-template-columns: 1fr; /* Adjust to 1 column per row on very small screens */
+        grid-template-columns: 1fr;
     }
 }
