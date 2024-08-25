@@ -11,13 +11,21 @@ body {
     background-color: #f5f0e1;
     color: #4d3319;
     text-align: center;
+    position: relative;
+    min-height: 100vh;
+    padding: 20px; /* Add some padding to create space for the border */
+    background-image: url('images/border-texture.jpg'); /* Apply the texture */
+    background-repeat: no-repeat; /* Avoid repeating the texture */
+    background-size: cover; /* Cover the entire background with the texture */
+    background-position: center; /* Center the texture */
+    border: 20px solid transparent; /* Reserve space for the border */
+    border-image: url('images/border-texture.jpg') 30 round; /* Apply the texture as a border */
 }
 
 /* Header and Navigation */
 header {
-    background-color: #e6a919;
     padding: 20px 0;
-    border-bottom: 4px solid #d35400;
+    /*border-bottom: 4px solid #d35400;*/
 }
 
 nav {
@@ -30,15 +38,16 @@ nav {
 
 .logo a {
     text-decoration: none;
-    font-size: 24px;
+    font-size: 36px; /* Larger font size */
     font-weight: bold;
-    color: #ffffff;
+    color: #4d3319; /* Darker color for contrast */
     font-family: 'Cooper Black', serif;
+    line-height: 1.2; /* Space between the two lines */
 }
 
 /* Container for Scaling the Grid */
 .container {
-    width: 90%; /* Scaling the grid to 90% */
+    width: 85%; /* Slightly reduce the width to scale down the grid */
     margin: 0 auto; /* Centering the grid */
 }
 
@@ -46,53 +55,110 @@ nav {
 .album-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 columns per row */
-    gap: 20px;
-    max-width: 1000px;
-    margin: 50px auto;
+    gap: 0; /* Remove gaps between the covers for the collage effect */
+    max-width: 950px; /* Adjust the width of the grid to reduce overall size */
+    margin: 0px auto;
+
 }
 
-.album {
-    position: relative;
-}
-
-.album img {
+.music-card {
     width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    transition: filter 0.3s ease;
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 0; /* Remove border-radius for collage effect */
+    box-shadow: none; /* Remove box-shadow for collage effect */
+    /* margin-bottom: -4px; /* Prevents gaps due to browser rounding */
+    /*margin-right: -4px; /* Prevents gaps due to browser rounding */
 }
 
-/* Centered Lightening Gradient Transparency on Hover */
-.album .overlay {
+.music-card-overlay {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle, rgba(245, 240, 225, 0.9) 0%, rgba(245, 240, 225, 0) 60%);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     opacity: 0;
-    transition: opacity 0.3s ease;
-    border-radius: 10px;
+    transition: opacity 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centering text vertically */
+    align-items: center; /* Centering text horizontally */
+    padding: 40px; /* Apple-style spacing */
+    text-align: center;
 }
 
-.album:hover .overlay {
+.music-card:hover .music-card-overlay {
     opacity: 1;
 }
 
-.icons {
-    display: flex;
-    gap: 20px; /* Space between the logos */
+.song-name {
+    font-size: 1.5em; /* Adjusted for reduced size */
+    font-weight: 600;
+    margin-bottom: 10px;
+    transform: translateY(20px);
+    transition: transform 0.7s;
 }
 
-.icons img {
-    width: 40px; /* Adjust size as needed */
+.artist-name {
+    font-size: 1em; /* Adjusted for reduced size */
+    font-weight: 300;
+    margin-bottom: 25px;
+    transform: translateY(20px);
+    transition: transform 0.7s, opacity 0.7s;
+    opacity: 0;
+}
+
+.music-links {
+    display: flex;
+    gap: 20px; /* Slightly reduced gap between icons */
+    transform: translateY(20px);
+    transition: transform 0.7s, opacity 0.7s;
+    opacity: 0;
+}
+
+.music-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 0.9em;
+    transition: color 0.3s;
+}
+
+.link-icon {
+    width: 35px; /* Reduced size for better fit */
     height: auto;
-    filter: invert(100%); /* Makes the icons white */
+    /*filter: invert(100%); /* Makes the icons white, including SVGs */
+}
+
+.music-card:hover .song-name,
+.music-card:hover .artist-name,
+.music-card:hover .music-links {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.music-card:hover .artist-name {
+    transition-delay: 0.1s;
+}
+
+.music-card:hover .music-links {
+    transition-delay: 0.2s;
+}
+
+/* Flooring Image at the Bottom */
+.footer-image {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
 }
 
 /* Responsive Design */
@@ -102,7 +168,7 @@ nav {
     }
 
     .logo a {
-        font-size: 20px;
+        font-size: 28px;
     }
 }
 

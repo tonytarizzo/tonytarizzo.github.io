@@ -10,43 +10,115 @@
     <header>
         <nav>
             <div class="logo">
-                <a href="#">Your Name</a>
+                <a href="#">Antonio Tarizzo</a> 
             </div>
         </nav>
     </header>
     <main>
-        <div class="container">
+        <div class="container"> 
             <section class="album-grid">
-                <div class="album">
-                    <img src="images/Sometimes The Morning Is Different EP Artwork.jpeg" alt="Album Cover">
-                    <div class="overlay">
-                        <div class="icons">
-                            <img src="images/spotify.png" alt="Spotify">
-                            <img src="images/applemusic.png" alt="Apple Music">
+                <div class="music-card" style="background-image: url('images/Sometimes The Morning Is Different EP Artwork.jpeg');">
+                    <div class="music-card-overlay">
+                        <h2 class="song-name">Sometimes The Morning Is Different<br>EP</h2>
+                        <p class="artist-name">Family Stereo</p>
+                        <div class="music-links">
+                            <a href="#" class="music-link">
+                                <img src="images/spotify-icon.png" alt="Spotify" class="link-icon">
+                            </a>
+                            <a href="#" class="music-link">
+                                <img src="images/instagram-icon.svg" alt="Instagram" class="link-icon">
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="album">
-                    <img src="images/Sometimes The Morning Is Different EP Artwork.jpeg" alt="Album Cover">
-                    <div class="overlay">
-                        <div class="icons">
-                            <img src="images/spotify.png" alt="Spotify">
-                            <img src="images/applemusic.png" alt="Apple Music">
+                <div class="music-card" style="background-image: url('images/Family Stereo Matter EP Album Artwork.jpeg');">
+                    <div class="music-card-overlay">
+                        <h2 class="song-name">Matter<br>EP</h2>
+                        <p class="artist-name">Family Stereo</p>
+                        <div class="music-links">
+                            <a href="#" class="music-link">
+                                <img src="images/spotify-icon.png" alt="Spotify" class="link-icon">
+                            </a>
+                            <a href="#" class="music-link">
+                                <img src="images/instagram-icon.svg" alt="Instagram" class="link-icon">
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="album">
-                    <img src="images/Sometimes The Morning Is Different EP Artwork.jpeg" alt="Album Cover">
-                    <div class="overlay">
-                        <div class="icons">
-                            <img src="images/spotify.png" alt="Spotify">
-                            <img src="images/applemusic.png" alt="Apple Music">
+                <div class="music-card" style="background-image: url('images/Songs To The Sea - Michael Crean.jpeg');">
+                    <div class="music-card-overlay">
+                        <h2 class="song-name">Songs To The Sea<br>Album</h2>
+                        <p class="artist-name">Michael Crean</p>
+                        <div class="music-links">
+                            <a href="#" class="music-link">
+                                <img src="images/spotify-icon.png" alt="Spotify" class="link-icon">
+                            </a>
+                            <a href="#" class="music-link">
+                                <img src="images/instagram-icon.svg" alt="Instagram" class="link-icon">
+                            </a>
                         </div>
                     </div>
                 </div>
-                <!-- Add more rows as needed -->
+                <div class="music-card" style="background-image: url('images/Beirut - Meyad.jpeg');">
+                    <div class="music-card-overlay">
+                        <h2 class="song-name">Beirut</h2>
+                        <p class="artist-name">Meyad</p>
+                        <div class="music-links">
+                            <a href="#" class="music-link">
+                                <img src="images/spotify-icon.png" alt="Spotify" class="link-icon">
+                            </a>
+                            <a href="#" class="music-link">
+                                <img src="images/instagram-icon.svg" alt="Instagram" class="link-icon">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="music-card" style="background-image: url('images/Numbers - Cole Karter.jpg');">
+                    <div class="music-card-overlay">
+                        <h2 class="song-name">Numbers (Remix)</h2>
+                        <p class="artist-name">Cole Karter</p>
+                        <div class="music-links">
+                            <a href="#" class="music-link">
+                                <img src="images/spotify-icon.png" alt="Spotify" class="link-icon">
+                            </a>
+                            <a href="#" class="music-link">
+                                <img src="images/instagram-icon.svg" alt="Instagram" class="link-icon">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="music-card" style="background-image: url('images/Oh So - Olympia Vitalis.jpeg');">
+                    <div class="music-card-overlay">
+                        <h2 class="song-name">Oh So</h2>
+                        <p class="artist-name">Olympia Vitalis</p>
+                        <div class="music-links">
+                            <a href="#" class="music-link">
+                                <img src="images/spotify-icon.png" alt="Spotify" class="link-icon">
+                            </a>
+                            <a href="#" class="music-link">
+                                <img src="images/instagram-icon.svg" alt="Instagram" class="link-icon">
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
     </main>
+    <!-- Flooring Image at the Bottom -->
+    <img src="images/Flooring Upscaled.png" alt="Flooring Image" class="footer-image">
+
+    <!-- JavaScript for Dynamic Padding -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const container = document.querySelector('.container');
+            const grid = document.querySelector('.album-grid');
+            const musicCard = document.querySelector('.music-card');
+            const numberOfRows = Math.ceil(grid.children.length / 3); // Assuming 3 columns
+            const musicCardHeight = musicCard.clientHeight;
+
+            // Set the dynamic padding-bottom
+            container.style.paddingBottom = (musicCardHeight * (numberOfRows + 0.1)) + 'px';
+        });
+    </script>
 </body>
 </html>
